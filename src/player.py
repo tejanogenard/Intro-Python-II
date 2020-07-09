@@ -2,10 +2,11 @@
 # currently.
 
 
-class player: 
-    def __init__(self, id, name):
+class Player: 
+    def __init__(self, id, name, room):
         self.id = id 
         self.name = name
+        self.room = room
     
     def __str__(self):
-        return f"{self.id}: {self.name}"
+        return f"currently in {self.room}"
