@@ -39,19 +39,10 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-playerOne = Player(1, "playerOne", room['outside'])
-
 # Write a loop that:
-while True:
-
-    print(playerOne.room.name)
 # *print(playerOne.room.n_to)
-
 # * Prints the current room name
-
-    print(playerOne.room.description)
 # * Prints the current description (the textwrap module might be useful here).
-
 # * Waits for user input and decides what to do.
 # Create play choice conditional 
 # * how will the user move through the rooms. 
@@ -59,54 +50,46 @@ while True:
 # * the user into the appropriate room. 
 # * - use if or else conditionals 
 #   if user choice is x-direction  
-
-    playerChoice = input("To travel in a direction type: s for south, n for north, w for west, and e for east: ")
-
+# If the user enters "q", quit the game.
 # If the user enters a cardinal direction, attempt to move to the room there.
 # Print an error message if the movement isn't allowed.
+
+
+playerOne = Player(1, "playerOne", room['outside'])
+
+while True:
+
+    print()
+    print(f"Location: {playerOne.room.name}")
+    print(f"text: {playerOne.room.description}")
+    print()
+
+    playerChoice = input("To travel in a direction type: s , n , w , e.  or q to quit: ")
+
     if playerChoice == 'q':
+
         break
-
-    if playerChoice == 'n':
-        if hasattr(playerOne.room, 'n_to'): 
-            playerOne.room = playerOne.room.n_to
-            print(f" moved to: {playerOne.room.name}")
-            print(playerOne.room.description)
-        else:
-            print("You cannot travel in this direction")
-
-    elif playerChoice == 's': 
-        if hasattr(playerOne.room, 's_to'): 
-            playerOne.room = playerOne.room.s_to
-            print(f" moved to: {playerOne.room.name}")
-            print(playerOne.room.description)
-        else:
-            print("You cannot travel in this direction")
-
     elif playerChoice == 'w':
-        if hasattr(playerOne.room, 'w_to'): 
-            playerOne.room == playerOne.room.w_to
-            print(f" moved to: {playerOne.room.name}")
-            print(playerOne.room.description)
+        if hasattr(playerOne.room, 'w_to'):
+            playerOne.room = playerOne.room.w_to
         else:
-            print("You cannot travel in this direction")
+            print("text: You cannot travel in that direction\n")
 
+    elif playerChoice == 'n':
+        if hasattr(playerOne.room, 'n_to'):
+            playerOne.room = playerOne.room.n_to
+        else:
+            print("text: You cannot travel in that direction\n")
+          
     elif playerChoice == 'e':
-        if hasattr(playerOne.room, 'e_to'): 
-            playerOne.room == playerOne.room.e_to
-            print(f" moved to: {playerOne.room.name}")
-            print(playerOne.room.description)
+        if hasattr(playerOne.room, 'e_to'):
+            playerOne.room = playerOne.room.e_to
+        else:
+            print("text: You cannot travel in that direction\n")
+    
+    elif playerChoice == 's':
+        if hasattr(playerOne.room, 's_to'):
+            playerOne.room = playerOne.room.s_to
+        else:
+            print("text: You cannot travel in that direction\n")
 
-    else:
-        print("You cannot travel in this direction") 
-
-
-
-
-
-
-
-
-
-#
-# If the user enters "q", quit the game.
