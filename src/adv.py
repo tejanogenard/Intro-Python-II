@@ -7,7 +7,9 @@ from item import Item
 
 room = {
     'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons"),
+                     "North of you, the cave mount beckons",
+                    [Item( "cave water", "tasting cave water to quench your thirst"), 
+                    Item("cave mushroom", "this cave mushroom has an unusual look...")]),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
 passages run north and east."""),
@@ -21,7 +23,7 @@ to north. The smell of gold permeates the air."""),
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south."""),
+earlier adventurers. The only exit is to the south.""", ),
 }
 
 
@@ -64,6 +66,8 @@ while True:
     print()
     print(f"Location: {playerOne.room.name}")
     print(f"text: {playerOne.room.description}")
+    print(f"Items:\n{playerOne.room.items[0]}\n{playerOne.room.items[1]}")
+    
     print()
 
     playerChoice = input("To travel in a direction type: s , n , w , e.  or q to quit: ")
