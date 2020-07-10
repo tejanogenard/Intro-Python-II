@@ -66,11 +66,12 @@ while True:
     print()
     print(f"Location: {playerOne.room.name}")
     print(f"text: {playerOne.room.description}")
-    print(f"Items:\n{playerOne.room.items[0]}\n{playerOne.room.items[1]}")
+    print(f"Items: \n 1) {playerOne.room.items[0]} \n 2) {playerOne.room.items[1]}")
     
     print()
 
-    playerChoice = input("To travel in a direction type: s , n , w , e.  or q to quit: ")
+    
+    playerChoice = input("To travel type: s , n , w , e.  or q to quit: ")
 
     if playerChoice == 'q':
 
