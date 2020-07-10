@@ -9,5 +9,8 @@ class Player:
         self.room = room
         self.items = items
     
-    def __str__(self):
-        return f"currently in {self.room}"
+    def add_to_inventory(self, item):
+        self.items.append(item)
+
+    def drop_item(self, item):
+        self.items.pop(item)
